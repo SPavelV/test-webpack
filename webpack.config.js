@@ -12,15 +12,22 @@ module.exports = {
     contentBase: "./dist/",
     hot: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Output Manegment"
+      title: "Hot Module Replacement"
     })
   ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/'
   }
 } 
